@@ -19,6 +19,8 @@ objects:
     annotations:
       description: Exposes the database server
     name: ${APPLICATION_NAME}-postgresql
+    labels:
+      app: ${APPLICATION_NAME}
   spec:
     ports:
     - name: postgresql

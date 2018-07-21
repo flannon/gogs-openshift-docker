@@ -18,12 +18,13 @@ There are two templates available: _persistent_ and _non-persistent_. The pesist
 Both templates will provision two linked pods: one for GOGS and other for Postgresql DB. If your have persistent volumes available in your cluster:
 
 ```
-oc new-app -f https://bit.ly/2Nmg8Jk  --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
+oc new-app -f http://bit.ly/flannon-openshift-gogs-persistent-template  --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
 ```
 
 Otherwise:
 ```
-oc new-app -f http://bit.ly/openshift-gogs-template --param=HOSTNAME=gogs-demo.yourdomain.com
+bit.ly/flannon-openshift-gogs-template
+oc new-app -f https://bit.ly/flannon-openshift-gogs-template --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
 ```
 
 Note that hostname is required during Gogs installation in order to configure repository urls correctly.

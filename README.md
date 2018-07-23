@@ -23,7 +23,6 @@ oc new-app -f http://bit.ly/flannon-openshift-gogs-persistent-template  --param=
 
 Otherwise:
 ```
-bit.ly/flannon-openshift-gogs-template
 oc new-app -f https://bit.ly/flannon-openshift-gogs-template --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
 ```
 

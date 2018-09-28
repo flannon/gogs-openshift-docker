@@ -15,15 +15,24 @@ There are two templates available: _persistent_ and _non-persistent_. The pesist
 * gogs-data 
 * gogs-postgres-data
 
-Both templates will provision two linked pods: one for GOGS and other for Postgresql DB. If your have persistent volumes available in your cluster:
+Both templates will provision two linked pods: one for GOGS and other for Postgresql DB. Start by cloning the repository:
 
 ```
-oc new-app -f http://bit.ly/flannon-openshift-gogs-persistent-template  --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
+git clone https://github.com/OpenShiftDemos/gogs-openshift-docker.git
+cd gogs-openshift-docker
+```
+
+If your have persistent volumes available in your cluster:
+
+```
+oc create -f openshift/gogs-persistent-template.yaml
+oc new-app gogs --param=HOSTNAME=gogs6.192.168.99.100.nip.io
 ```
 
 Otherwise:
 ```
-oc new-app -f https://bit.ly/flannon-openshift-gogs-template --param=HOSTNAME=gogs-demo.192.168.99.101.nip.io
+oc create -f openshift/gogs-template.yaml
+oc new-app gogs --param=HOSTNAME=gogs6.192.168.99.100.nip.io
 ```
 
 Note that hostname is required during Gogs installation in order to configure repository urls correctly.
